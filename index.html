@@ -3,144 +3,239 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cartão Digital — Lucas</title>
-
-<style>
-    :root{
-      --wa:#25D366;
-      --shadow: 0 18px 60px rgba(0,0,0,.25);
-      --radius: 20px;
-      --pad: 18px;
-      --safe: max(16px, env(safe-area-inset-bottom));
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:#f4f6fb;
-}
-
-/* ===== DESKTOP (cartão centralizado) ===== */
-.wrap{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.card{
-  width:520px;
-  aspect-ratio:1/1;
-  border-radius:22px;
-  overflow:hidden;
-  position:relative;
-  box-shadow:0 25px 70px rgba(0,0,0,.25);
-}
-
-/* ===== IMAGEM ===== */
-.card img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* ===== FAIXA ESCURA EMBAIXO ===== */
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 60%);
-}
-
-/* ===== CONTEÚDO ===== */
-.content{
-  position:absolute;
-  bottom:40px;
-  width:100%;
-  text-align:center;
-  color:#fff;
-  padding:0 20px;
-}
-
-.nome{
-  font-size:32px;
-  font-weight:900;
-}
-
-.desc{
-  font-size:16px;
-  margin:8px 0 18px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  background:#157939;
-  color:#ffffff;
-  text-decoration:none;
-  padding:16px 30px;
-  border-radius:14px;
-  font-weight:800;
-  font-size:18px;
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
-}
-
-/* ===== MOBILE FULLSCREEN ===== */
-@media (max-width: 700px){
-  .wrap{
-    padding:0;
-  }
-
-  .card{
-    width:100vw;
-    height:100svh;   /* ocupa a tela inteira do celular */
-    border-radius:0;
-    aspect-ratio:auto;
-  }
-
-  .content{
-    bottom:60px;
-  }
-
-  .nome{
-    font-size:26px;
-  }
-
-  .btn{
-    width:90%;
-    font-size:17px;
-  }
-}
-</style>
+  <title>Marido de Aluguel - Elétrica, Hidráulica e Reparos</title>
+  <meta name="description" content="Serviços de elétrica, hidráulica e reparos em Sete Lagoas. Orçamento rápido pelo WhatsApp!">
+  
+  <!-- CSS Externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
-      <!-- Troque para sua imagem -->
-      <img class="bg" src="./Lucas_img.png" alt="Cartão Digital do Lucas">
 
-      <div class="overlay"></div>
+  <!-- ===== MENU FIXO ===== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        Marido <span>de Aluguel</span>
+      </a>
 
-      <div class="content">
-        <!-- Edite aqui -->
-        <p class="nome">Lucas Fernando</p>
-
-        <div class="btn">
-          <a
-            href="https://wa.me/5531983362152?text=Oi!%20Quero%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
-            target="_blank" rel="noreferrer"
-          >
-            Chamar no WhatsApp
+      <ul class="nav-menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li>
+          <a href="https://wa.me/5531983362152?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20serviços%20de%20reparos." 
+             class="nav-btn"
+             target="_blank" 
+             rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            WhatsApp
           </a>
+        </li>
+      </ul>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <div class="hero-card">
+        <img src="Lucas_img.png" alt="Marido de Aluguel - Logo" class="logo-img">
+        
+        <h1 class="hero-title">Marido de Aluguel</h1>
+        <p class="hero-subtitle">Elétrica • Hidráulica • Reparos</p>
+        <p class="hero-text">
+          Serviços profissionais de elétrica, hidráulica e reparos gerais.<br>
+          Atendimento rápido e qualidade garantida em Sete Lagoas!
+        </p>
+        
+        <a href="https://wa.me/5531983362152?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20serviços%20de%20reparos." 
+           class="btn-whatsapp" 
+           target="_blank" 
+           rel="noopener noreferrer">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Orçamento no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos" class="servicos">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+      
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icon">⚡</div>
+          <h3 class="servico-title">Elétrica</h3>
+          <p class="servico-desc">Serviços elétricos residenciais e comerciais</p>
+          <ul class="servico-lista">
+            <li>Instalação de tomadas e interruptores</li>
+            <li>Troca de lâmpadas e luminárias</li>
+            <li>Instalação de ventiladores e lustres</li>
+            <li>Reparo em disjuntores</li>
+            <li>Manutenção elétrica geral</li>
+          </ul>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon">🚰</div>
+          <h3 class="servico-title">Hidráulica</h3>
+          <p class="servico-desc">Soluções completas em hidráulica</p>
+          <ul class="servico-lista">
+            <li>Conserto de vazamentos</li>
+            <li>Desentupimento</li>
+            <li>Instalação de torneiras e registros</li>
+            <li>Troca de sifões</li>
+            <li>Manutenção de caixas d'água</li>
+          </ul>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon">🔧</div>
+          <h3 class="servico-title">Reparos Gerais</h3>
+          <p class="servico-desc">Diversos serviços de manutenção</p>
+          <ul class="servico-lista">
+            <li>Montagem de móveis</li>
+            <li>Instalação de prateleiras</li>
+            <li>Fixação de TV na parede</li>
+            <li>Pequenos reparos em portas e janelas</li>
+            <li>Pintura e retoques</li>
+          </ul>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ===== DIFERENCIAIS ===== -->
+  <section id="diferenciais" class="diferenciais">
+    <div class="container">
+      <h2 class="section-title">Por que nos escolher?</h2>
+      
+      <div class="diferenciais-grid">
+        <div class="diferencial-item">
+          <div class="diferencial-icon">⏰</div>
+          <h3 class="diferencial-title">Atendimento Rápido</h3>
+          <p class="diferencial-desc">Resposta imediata pelo WhatsApp e agendamento flexível</p>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="diferencial-icon">✓</div>
+          <h3 class="diferencial-title">Qualidade Garantida</h3>
+          <p class="diferencial-desc">Serviços com garantia e profissionalismo</p>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="diferencial-icon">💰</div>
+          <h3 class="diferencial-title">Preço Justo</h3>
+          <p class="diferencial-desc">Orçamento transparente sem surpresas</p>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="diferencial-icon">🏆</div>
+          <h3 class="diferencial-title">Experiência</h3>
+          <p class="diferencial-desc">Anos de experiência em serviços residenciais</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section id="contato" class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Precisa de um Reparo?</h2>
+      <p class="cta-text">Entre em contato agora e receba seu orçamento gratuito!</p>
+      
+      <a href="https://wa.me/5531983362152?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20serviços%20de%20reparos." 
+         class="btn-whatsapp-large" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">Marido de Aluguel</h3>
+      <p class="footer-text">Elétrica • Hidráulica • Reparos</p>
+      
+      <div class="footer-contact">
+        <div class="footer-item">
+          <span>📱</span>
+          <span>(31) 98336-2152</span>
+        </div>
+        <div class="footer-item">
+          <span>📍</span>
+          <span>Sete Lagoas, MG</span>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+      
+      <p class="footer-copy">
+        ©Wipe7 Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== BOTÃO FLUTUANTE ===== -->
+  <div class="btn-flutuante">
+    <a href="https://wa.me/5531983362152?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20serviços%20de%20reparos." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
   </div>
+
+  <!-- ===== JAVASCRIPT MENU MOBILE ===== -->
+  <script>
+    // Menu Hamburger Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.nav-menu li a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Efeito de scroll no menu
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
 </body>
 </html>
