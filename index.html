@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cartão Digital — Lucas</title>
 
-  <style>
+<style>
     :root{
       --wa:#25D366;
       --shadow: 0 18px 60px rgba(0,0,0,.25);
@@ -14,136 +14,109 @@
       --safe: max(16px, env(safe-area-inset-bottom));
     }
 
-    *{ box-sizing: border-box; }
+    *{box-sizing:border-box;margin:0;padding:0}
 
-    body{
-      margin:0;
-      min-height:100svh;
-      display:grid;
-      place-items:center;
-      padding: 18px;
-      background: #f4f6fb;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+body{
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:#f4f6fb;
+}
 
-    /* Card responsivo (quadrado) */
-    .wrap{
-      width: min(520px, 96vw);
-    }
+/* ===== DESKTOP (cartão centralizado) ===== */
+.wrap{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-    .card{
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: var(--radius);
-      overflow:hidden;
-      position: relative;
-      box-shadow: var(--shadow);
-      background: #000;
-    }
+.card{
+  width:520px;
+  aspect-ratio:1/1;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
 
-    .card img.bg{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.01);
-    }
+/* ===== IMAGEM ===== */
+.card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
-    /* Camada para garantir legibilidade */
-    .overlay{
-      position:absolute;
-      inset:0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,.55) 0%,
-        rgba(0,0,0,.25) 35%,
-        rgba(0,0,0,0) 70%
-      );
-      pointer-events:none;
-    }
+/* ===== FAIXA ESCURA EMBAIXO ===== */
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 60%);
+}
 
-    /* Área de conteúdo embaixo (nome + descrição + botão) */
-    .content{
-      position:absolute;
-      left:0; right:0;
-      bottom:0;
-      padding: 18px 18px calc(18px + var(--safe));
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      align-items:center;
-      text-align:center;
-      color:#fff;
-    }
+/* ===== CONTEÚDO ===== */
+.content{
+  position:absolute;
+  bottom:40px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  padding:0 20px;
+}
 
-    .nome{
-      font-weight: 900;
-      font-size: clamp(20px, 5vw, 34px);
-      letter-spacing: .2px;
-      line-height: 1.1;
-      margin:0;
-      text-shadow: 0 8px 18px rgba(0,0,0,.35);
-    }
+.nome{
+  font-size:32px;
+  font-weight:900;
+}
 
-    .desc{
-      margin:0;
-      opacity:.95;
-      font-weight: 650;
-      font-size: clamp(13px, 3.6vw, 16px);
-      text-shadow: 0 8px 18px rgba(0,0,0,.35);
-    }
+.desc{
+  font-size:16px;
+  margin:8px 0 18px;
+}
 
-    .btnWa{
-      width: 100%;
-      display:flex;
-      justify-content:center;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  background:#157939;
+  color:#ffffff;
+  text-decoration:none;
+  padding:16px 30px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:18px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
 
-    .btnWa a{
-      width: 100%;
-      max-width: 420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: var(--wa);
-      color:#fff;
-      text-decoration:none;
-      font-weight: 900;
-      font-size: clamp(14px, 4vw, 18px);
-      box-shadow: 0 16px 35px rgba(0,0,0,.28);
-      transform: translateZ(0);
-      transition: transform .2s ease, filter .2s ease;
-    }
+/* ===== MOBILE FULLSCREEN ===== */
+@media (max-width: 700px){
+  .wrap{
+    padding:0;
+  }
 
-    .btnWa a:active{
-      transform: scale(.98);
-      filter: brightness(.95);
-    }
+  .card{
+    width:100vw;
+    height:100svh;   /* ocupa a tela inteira do celular */
+    border-radius:0;
+    aspect-ratio:auto;
+  }
 
-    .waIcon{
-      width: 22px;
-      height: 22px;
-      flex: 0 0 auto;
-    }
+  .content{
+    bottom:60px;
+  }
 
-    /* Um “hint” abaixo do card (opcional) */
-    .hint{
-      margin-top: 12px;
-      color: rgba(0,0,0,.55);
-      font-size: 13px;
-      text-align:center;
-    }
+  .nome{
+    font-size:26px;
+  }
 
-    /* Desktop: aumenta um pouco */
-    @media (min-width: 900px){
-      .wrap{ width: min(620px, 92vw); }
-    }
-  </style>
+  .btn{
+    width:90%;
+    font-size:17px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -158,23 +131,16 @@
         <!-- Edite aqui -->
         <p class="nome">Lucas Fernando</p>
 
-        <div class="btnWa">
+        <div class="btn">
           <a
             href="https://wa.me/5531983362152?text=Oi!%20Quero%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
             target="_blank" rel="noreferrer"
           >
-            <!-- Ícone Whats (SVG leve, não depende de internet) -->
-            <svg class="waIcon" viewBox="0 0 32 32" aria-hidden="true">
-              <path fill="#fff" d="M19.11 17.22c-.28-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.24-1.36-.83-.74-1.39-1.65-1.56-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.04-.35-.02-.48-.07-.14-.61-1.47-.83-2.01-.22-.53-.44-.46-.61-.46h-.52c-.18 0-.48.07-.73.35-.25.28-.95.92-.95 2.25 0 1.33.97 2.61 1.11 2.79.14.18 1.91 2.92 4.63 4.09.65.28 1.16.45 1.55.57.65.21 1.25.18 1.72.11.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z"/>
-              <path fill="#fff" d="M16 3C8.82 3 3 8.61 3 15.53c0 2.7.9 5.2 2.43 7.23L4 29l6.5-1.7c1.9 1.02 4.08 1.6 6.4 1.6 7.18 0 13-5.61 13-12.53S23.18 3 16 3zm0 23.05c-2.17 0-4.19-.63-5.88-1.71l-.42-.26-3.86 1 1.03-3.63-.28-.49a10.06 10.06 0 0 1-1.63-5.43C4.96 9.85 9.95 5.1 16 5.1s11.04 4.75 11.04 10.43S22.05 26.05 16 26.05z"/>
-            </svg>
             Chamar no WhatsApp
           </a>
         </div>
       </div>
     </div>
-
-    <div class="hint">Dica: use esse link na bio e nos anúncios.</div>
   </div>
 </body>
 </html>
